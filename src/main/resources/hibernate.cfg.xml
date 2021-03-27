@@ -7,6 +7,8 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost/sda</property>
         <property name="hibernate.connection.username">sda</property>
         <property name="hibernate.connection.password">sda</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
         <mapping resource="Book.hbm.xml"/>
         <mapping resource="Author.hbm.xml"/>
         <mapping resource="Category.hbm.xml"/>

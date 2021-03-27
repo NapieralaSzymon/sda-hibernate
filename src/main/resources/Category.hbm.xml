@@ -7,5 +7,9 @@
             <generator class="native"></generator>
         </id>
         <property name="name" column="name" type="string"/>
+        <set name="books" table="book_category">
+            <key column="category_id"></key>
+            <many-to-many column="book_id" class="pl.sda.hibernate.Book"/>
+        </set>
     </class>
 </hibernate-mapping>

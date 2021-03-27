@@ -1,10 +1,13 @@
 package pl.sda.hibernate;
 
+import java.util.Set;
+
 public class Category
 {
 
     private Integer id;
     private String name;
+    private Set< Book > books;
 
     public Integer getId()
     {
@@ -24,6 +27,16 @@ public class Category
     public void setName( String aName )
     {
         name = aName;
+    }
+
+    public Set< Book > getBooks()
+    {
+        return books;
+    }
+
+    public void setBooks( Set< Book > aBooks )
+    {
+        books = aBooks;
     }
 
     @Override
