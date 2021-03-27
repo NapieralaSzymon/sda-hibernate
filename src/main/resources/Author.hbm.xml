@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pl.sda.hibernate.Author" table="author">
+        <id name="id" column="id" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="firstName" column="first_name" type="string"/>
+        <property name="lastName" column="last_name" type="string"/>
+        <set name="books" cascade="all">
+            <key column="author_id"></key>
+            <one-to-many class="pl.sda.hibernate.Book"/>
+        </set>
+    </class>
+</hibernate-mapping>

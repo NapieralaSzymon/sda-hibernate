@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pl.sda.hibernate.Book" table="book">
+        <id name="id" column="id" type="int">
+            <generator class="native"></generator>
+        </id>
+        <property name="title" column="title" type="string"/>
+        <many-to-one name="author" column="author_id" class="pl.sda.hibernate.Author" not-null="false"/>
+        <set name="categories" table="book_category">
+            <key column="book_id"></key>
+            <many-to-many column="category_id" class="pl.sda.hibernate.Category"/>
+        </set>
+    </class>
+</hibernate-mapping>
