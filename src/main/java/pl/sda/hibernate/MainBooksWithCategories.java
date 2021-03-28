@@ -5,9 +5,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
-public class TestCategoryWithBooks
+public class MainBooksWithCategories
 {
 
     public static void main( String[] args )
@@ -17,12 +16,14 @@ public class TestCategoryWithBooks
             .buildSessionFactory();
         try (Session session = sessionFactory.openSession())
         {
-            Query< Category > query = session.createQuery( "from Category", Category.class );
-            List< Category > categories = query.list();
-            for( Category category : categories )
+            List< Book > books = session.createQuery( "from Book", Book.class )
+                .list();
+            for( Book book : books )
             {
-                System.out.println( category );
-//                System.out.println( category.getBooks() );
+                System.out.println();
+                System.out.println( book );
+                System.out.println( book.getCategories() );
+                System.out.println();
             }
         }
     }

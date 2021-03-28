@@ -2,15 +2,23 @@
 <!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost/sda</property>
         <property name="hibernate.connection.username">sda</property>
         <property name="hibernate.connection.password">sda</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-        <mapping resource="Book.hbm.xml"/>
-        <mapping resource="Author.hbm.xml"/>
-        <mapping resource="Category.hbm.xml"/>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <!--        <property name="hibernate.show_sql">true</property>-->
+        <!--        <property name="hibernate.format_sql">true</property>-->
+        <!--        <mapping resource="Book.hbm.xml"/>-->
+        <!--        <mapping resource="Author.hbm.xml"/>-->
+        <!--        <mapping resource="Category.hbm.xml"/>-->
+        <!--        <mapping class="pl.sda.hibernate.Book"/>-->
+        <!--        <mapping class="pl.sda.hibernate.Author"/>-->
+        <!--        <mapping class="pl.sda.hibernate.Category"/>-->
+        <mapping class="pl.sda.hibernate.Person"/>
+        <mapping class="pl.sda.hibernate.Developer"/>
+        <mapping class="pl.sda.hibernate.Animal"/>
+        <mapping class="pl.sda.hibernate.Dog"/>
     </session-factory>
 </hibernate-configuration>

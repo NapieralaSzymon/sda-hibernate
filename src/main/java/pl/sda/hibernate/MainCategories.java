@@ -5,9 +5,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
-public class TestOneToMany
+public class MainCategories
 {
 
     public static void main( String[] args )
@@ -15,15 +14,15 @@ public class TestOneToMany
         Configuration configuration = new Configuration();
         SessionFactory sessionFactory = configuration.configure()
             .buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        Query< Author > query = session.createQuery( "from Author", Author.class );
-        List< Author > list = query.list();
-        for( Author author : list )
+        try (Session session = sessionFactory.openSession())
         {
-            System.out.println( author );
-//            System.out.println( author.getBooks() );
+            List< Category > categories = session.createQuery( "from Category", Category.class )
+                .list();
+            for( Category category : categories )
+            {
+                System.out.println( category );
+            }
         }
-        session.close();
     }
 
 }
