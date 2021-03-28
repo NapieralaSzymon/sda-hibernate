@@ -20,5 +20,7 @@
         <mapping class="pl.sda.hibernate.Developer"/>
         <mapping class="pl.sda.hibernate.Animal"/>
         <mapping class="pl.sda.hibernate.Dog"/>
+        <mapping class="pl.sda.hibernate.Phone"/>
+        <mapping class="pl.sda.hibernate.Smartphone"/>
     </session-factory>
 </hibernate-configuration>
